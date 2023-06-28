@@ -1,0 +1,56 @@
+SELECT
+  *
+FROM
+  SALES_DATA
+LIMIT
+  10;
+
+//Count the number of rows in the dataset  
+SELECT COUNT(*)
+FROM sales_data;
+
+//Find the distinct values in the "Region" column
+SELECT DISTINCT Region
+FROM sales_data;
+
+//Calculate the total revenue and profit for each country
+SELECT Country, SUM(TotalRevenue) AS TotalRevenue, SUM(TotalProfit) AS TotalProfit
+FROM sales_data
+GROUP BY Country;
+
+//Determine the most frequently ordered item type
+SELECT ItemType, COUNT(*) AS OrderCount
+FROM sales_data
+GROUP BY ItemType
+ORDER BY OrderCount DESC
+LIMIT 1;
+
+//Identify key columns and their unique values
+SELECT DISTINCT Region, Country
+FROM sales_data;
+
+//Analyze sales statistics
+SELECT
+  MIN(OrderDate) AS Min_Order_Date,
+  MAX(OrderDate) AS Max_Order_Date,
+  AVG(UnitsSold) AS Avg_Units_Sold,
+  SUM(TotalRevenue) AS Total_Revenue
+FROM sales_data;
+
+//Group sales data by region
+SELECT Region, SUM(TotalRevenue) AS Total_Revenue, SUM(TotalProfit) AS Total_Profit
+FROM sales_data
+GROUP BY Region;
+
+//Determine the top-selling items
+SELECT ItemType, SUM(UnitsSold) AS Total_Units_Sold
+FROM sales_data
+GROUP BY ItemType
+ORDER BY Total_Units_Sold DESC
+LIMIT 5;
+
+
+
+
+
+
